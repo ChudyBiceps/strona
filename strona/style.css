@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ffafcc, #ffdde1);
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.photo-container {
+    margin: 20px auto;
+    text-align: center;
+    position: relative;
+}
+
+.photo-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.photo-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.poem-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%;
+}
+
+.poem {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.hearts {
+    position: fixed; /* Upewnia się, że obejmuje całą stronę */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Zapewnia, że serca nie będą przeszkadzać w interakcji z innymi elementami */
+    z-index: -1; /* Serca w tle */
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b81;
+    transform: rotate(45deg);
+    animation: float 5s infinite;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 0;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b81;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    left: -10px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-300px) rotate(45deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-600px) rotate(45deg);
+        opacity: 0;
+    }
+}
